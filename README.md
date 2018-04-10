@@ -15,6 +15,7 @@ Creates mssql user and grants permissions for database.
       --param db_admin={database server admin login} \
       --param db_pass={database server admin password} \
       --param db_user={user login}
+      --param db_user_pass={user password}
 
 
     $ only check that your db admin creds are valid
