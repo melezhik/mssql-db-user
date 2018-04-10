@@ -1,6 +1,6 @@
 # SYNOPSIS
 
-Creates mssql user and grants to user permissions for database.
+Creates mssql user and grants permissions for database.
 
 # Install
 
@@ -8,6 +8,8 @@ Creates mssql user and grants to user permissions for database.
 
 # USAGE
 
+    # create user with login and password
+    # and grant permissions to databases
     $ sparrow plg run mssql-db-user \
       --param db_server={mssql server host} \
       --param db_admin={database server admin login} \
@@ -16,6 +18,13 @@ Creates mssql user and grants to user permissions for database.
       --param db_pass={user password}
 
 
+    $ only check that your db admin creds are valid
+
+
+    $ sparrow plg run mssql-db-user \
+      --param db_server={mssql server host} \
+      --param db_admin={database server admin login} \
+      --param check_connection=on
     
 # Prerequisites
 
