@@ -27,5 +27,5 @@ sqlcmd -Q "CREATE USER [$db_user] FOR LOGIN [$db_user]"  -S $db_server,1433  -U 
 
 sqlcmd -Q "EXEC sp_addrolemember 'db_owner', [$db_user]" -S $db_server,1433  -U $db_admin -I -P $db_pass -d $db_name
 
-sqlcmd -Q "create table test (EmpId int)" -S $db_server,1433  -U $db_server -I -P $db_user_pass -d $db_name
+sqlcmd -Q "create table test (EmpId int)" -S $db_server,1433  -U $db_user -I -P $db_user_pass -d $db_name
 
