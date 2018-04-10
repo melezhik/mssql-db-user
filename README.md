@@ -1,6 +1,6 @@
 # SYNOPSIS
 
-Creates mssql user and grants to user permissions for database
+Creates mssql user and grants to user permissions for database.
 
 # Install
 
@@ -20,6 +20,7 @@ Creates mssql user and grants to user permissions for database
 # Prerequisites
 
 * pwgen
+
 * sqlcmd client 
 
 # Author
