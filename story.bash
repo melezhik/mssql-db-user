@@ -29,3 +29,5 @@ sqlcmd -Q "EXEC sp_addrolemember 'db_owner', [$db_user]" -S $db_server,1433  -U 
 
 sqlcmd -Q "create table test (EmpId int)" -S $db_server,1433  -U $db_user -I -P $db_user_pass -d $db_name
 
+echo "connection string:"
+echo "[Server=$db_server;Initial Catalog=$db_name;Persist Security Info=False;User ID=$db_user;Password=$db_user_pass;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;]"

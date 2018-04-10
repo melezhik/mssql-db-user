@@ -2,7 +2,7 @@
 
   "name" : "mssql-db-user",
   "description" : "Creates mssql user and grants permissions for database",
-  "version" : "0.0.4",
+  "version" : "0.0.5",
   "category" : "utilities",
   "url" : "https://github.com/melezhik/mssql-db-user"
 }
