@@ -8,7 +8,7 @@ Creates mssql user and grants permissions for database.
 
 # USAGE
 
-1. using sparrow plugin
+## Using sparrow plugin
 
     # create user with login and password
     # and grant permissions to databases
@@ -30,7 +30,7 @@ Creates mssql user and grants permissions for database.
       --param db_pass={database server admin password} \
       --param check_connection=on
 
-2. using sparrow task
+# Using sparrow task
 
 
     $ sparrow project create databases
