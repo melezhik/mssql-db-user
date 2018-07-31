@@ -9,6 +9,7 @@ db_user_pass=$(config db_user_pass)
 db_user=$(config db_user)
 
 check_conn=$(config check_connection)
+drop_login=$(config drop_login)
 
 if test $check_conn = "on"; then
   set -e
@@ -18,6 +19,9 @@ if test $check_conn = "on"; then
   exit 0
 fi
 
+if test $drop_login = "on"; then
+  sqlcmd -Q "DROP LOGIN [$db_user]" -S $db_server,1433  -U $db_admin -I -P $db_pass -d master
+fi
 
 sqlcmd -Q "CREATE LOGIN [$db_user] WITH PASSWORD = '$db_user_pass'" -S $db_server,1433  -U $db_admin -I -P $db_pass -d master
 
@@ -27,7 +31,7 @@ sqlcmd -Q "CREATE USER [$db_user] FOR LOGIN [$db_user]"  -S $db_server,1433  -U 
 
 sqlcmd -Q "EXEC sp_addrolemember 'db_owner', [$db_user]" -S $db_server,1433  -U $db_admin -I -P $db_pass -d $db_name
 
-sqlcmd -Q "create table test (EmpId int)" -S $db_server,1433  -U $db_user -I -P $db_user_pass -d $db_name
+#sqlcmd -Q "create table test (EmpId int)" -S $db_server,1433  -U $db_user -I -P $db_user_pass -d $db_name
 
 echo "connection string:"
 echo "Server=$db_server;Initial Catalog=$db_name;Persist Security Info=False;User ID=$db_user;Password=$db_user_pass;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
